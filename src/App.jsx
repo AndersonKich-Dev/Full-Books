@@ -2,13 +2,13 @@ import React from 'react'
 import { Container } from './styles/AppStyle'
 import ligthTheme from './themes/light'
 import { ThemeProvider } from 'styled-components'
-import HomeView from './views/home'
+import Home from './template/home'
 
 export default function App(){
   return (
     <ThemeProvider theme={ligthTheme}>
       <Container>
-        <HomeView/>
+        <Home/>
       </Container>
     </ThemeProvider>
   );

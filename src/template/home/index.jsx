@@ -12,8 +12,12 @@ export default function Home(){
                 <h1>full books</h1>
             </S.Header>
 
-            <S.Main>
+            <S.Menu>
+                <h1>Menu</h1>
+            </S.Menu>
 
+            <S.Main>
+                <h1>Content</h1>
             </S.Main>
         </S.Container>
     )

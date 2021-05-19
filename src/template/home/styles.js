@@ -4,7 +4,8 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
     background-color: ${props => props.theme.colors.gray_50};
 `;
 
@@ -14,6 +15,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.20);
     color: ${props => props.theme.colors.gray_600};
 
@@ -29,6 +31,14 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
-    flex: 1;
-   
+    width: 80%;
+    height: calc(100% - 5rem);
+    border: 1px solid yellow;
+`;
+
+export const Menu = styled.nav`
+    width: 20%;
+    height: calc(100% - 5rem);
+    border: 1px solid red;
+
 `;
