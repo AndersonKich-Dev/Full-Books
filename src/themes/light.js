@@ -2,7 +2,7 @@
 export default{
     colors: {
         white: '#FFF',
-
+        green: '#04d361',
         purple_300: '#8257e5',
 
         gray_50: '#f7f8fa',

@@ -22,7 +22,7 @@ export const Container = styled.div`
     }
 
     input {
-        flex: 1;
+        width: 90%;
         height: 100%;
         padding-left: 1rem;
         border: none;

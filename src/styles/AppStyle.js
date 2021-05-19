@@ -34,12 +34,11 @@ export const Header = styled.header`
 export const Main = styled.main`
     width: 80%;
     height: calc(100% - 5rem);
-    border: 1px solid yellow;
 `;
 
 export const Menu = styled.nav`
     width: 20%;
     height: calc(100% - 5rem);
-    border: 1px solid red;
+   // border: 1px solid red;
     padding: .5rem;
 `;

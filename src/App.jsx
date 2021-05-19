@@ -3,10 +3,11 @@ import * as S from './styles/AppStyle'
 import { GiBookPile} from 'react-icons/gi'
 import ligthTheme from './themes/light'
 import { ThemeProvider } from 'styled-components'
-
+import Routes from './config/routes'
 import Search from './components/Search-component'
 
 export default function App(){
+
   return (
     <ThemeProvider theme={ligthTheme}>
       <S.Container>
@@ -20,7 +21,7 @@ export default function App(){
         </S.Menu>
 
         <S.Main>
-            <h1>Content</h1>
+            <Routes/>
         </S.Main>
       </S.Container>
     </ThemeProvider>
