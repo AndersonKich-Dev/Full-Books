@@ -1,10 +1,16 @@
 import React from 'react'
+import { Container } from './styles/AppStyle'
+import ligthTheme from './themes/light'
+import { ThemeProvider } from 'styled-components'
+import HomeView from './views/home'
 
 export default function App(){
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <ThemeProvider theme={ligthTheme}>
+      <Container>
+        <HomeView/>
+      </Container>
+    </ThemeProvider>
   );
 }
 
