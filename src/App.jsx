@@ -1,15 +1,28 @@
 import React from 'react'
-import { Container } from './styles/AppStyle'
+import * as S from './styles/AppStyle'
+import { GiBookPile} from 'react-icons/gi'
 import ligthTheme from './themes/light'
 import { ThemeProvider } from 'styled-components'
-import Home from './template/home'
+
+import Search from './components/Search-component'
 
 export default function App(){
   return (
     <ThemeProvider theme={ligthTheme}>
-      <Container>
-        <Home/>
-      </Container>
+      <S.Container>
+        <S.Header>
+            <GiBookPile/>
+            <h1>full books</h1>
+        </S.Header>
+
+        <S.Menu>
+            <Search/>
+        </S.Menu>
+
+        <S.Main>
+            <h1>Content</h1>
+        </S.Main>
+      </S.Container>
     </ThemeProvider>
   );
 }
