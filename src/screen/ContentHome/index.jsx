@@ -17,7 +17,7 @@ export default function Test01(){
                         below. Have a great read.
                     </p>
 
-                    <button onClick={() => handleListBooks('arvores')}>Library</button>
+                    <button onClick={() => handleListBooks('React')}>Library</button>
                 </S.Welcome> 
                 : 
                 <h1>Screen Home Content full books</h1>
