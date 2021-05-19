@@ -2,6 +2,8 @@ import React from 'react'
 import { GiBookPile} from 'react-icons/gi'
 import * as S from './styles'
 
+import Search from '../../components/Search-component'
+
 export default function Home(){
 
 
@@ -13,7 +15,7 @@ export default function Home(){
             </S.Header>
 
             <S.Menu>
-                <h1>Menu</h1>
+                <Search/>
             </S.Menu>
 
             <S.Main>
