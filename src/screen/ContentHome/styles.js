@@ -6,8 +6,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    padding: 0 5rem;
 
-    background-color: #9f75ff;
+    @media only screen and (min-width: 700px) and (max-width: 1024px){
+        padding: 0
+    }
+
+    @media only screen and (min-width: 0) and (max-width: 700px){
+        padding: 0
+    }
 ;`
 
 export const Welcome = styled.div`
@@ -41,3 +49,19 @@ export const Welcome = styled.div`
         }
     }
 `;
+
+export const ContainerCards = styled.div`
+    width:100%;
+    height: calc(100% - 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+
+    @media only screen and (min-width: 0) and (max-width: 700px){
+        overflow-y: scroll;
+    }
+`;
+

@@ -1,14 +1,20 @@
 import React from 'react'
 import * as S from './styles'
+import Card from '../../components/Card-component'
+import Paginate from '../../components/Paginate-component'
 import { useGlobalContext } from '../../Context/GlobalContext'
 
 export default function Test01(){
-    const { fullBooks, handleListBooks } = useGlobalContext();
+    const { listForBooks, currentPage, handleListBooks, setSearch} = useGlobalContext();
 
+    const firstSearch=()=>{
+        setSearch('react')
+        handleListBooks('react', true)
+    }
 
     return(
         <S.Container>
-            {!fullBooks ?   
+            {!currentPage ?   
                 <S.Welcome>
                     <h1>Welcome</h1>
                     <p>
@@ -17,12 +23,16 @@ export default function Test01(){
                         below. Have a great read.
                     </p>
 
-                    <button onClick={() => handleListBooks('React')}>Library</button>
+                    <button onClick={firstSearch}>Library</button>
                 </S.Welcome> 
                 : 
-                <h1>Screen Home Content full books</h1>
+                <S.ContainerCards>
+                    {listForBooks.map(( item, index )=>(
+                        <Card key={index} book={item}/>
+                    ))}
+                </S.ContainerCards>
             }
-           
+          <Paginate/>
             
         </S.Container>
     )

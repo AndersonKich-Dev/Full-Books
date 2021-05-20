@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    position: relative;
     width: 100vw;
     height: 100vh;
-    padding: 0 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    background-color: ${props => props.theme.colors.gray_50};
+    background-color: ${props => props.theme.colors.purple_500};
 `;
 
 export const Header = styled.header`
@@ -17,8 +17,8 @@ export const Header = styled.header`
     align-items: center;
     justify-content: center;
     z-index: 1;
-    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.20);
-    color: ${props => props.theme.colors.gray_600};
+    background-color: ${props =>props.theme.colors.orange_100};
+    color: ${props =>props.theme.colors.white};
 
     svg {
         margin-right: 1rem;
@@ -34,11 +34,15 @@ export const Header = styled.header`
 export const Main = styled.main`
     width: 80%;
     height: calc(100% - 5rem);
+
+  
 `;
 
 export const Menu = styled.nav`
     width: 20%;
     height: calc(100% - 5rem);
-   // border: 1px solid red;
     padding: .5rem;
+
+
+    
 `;

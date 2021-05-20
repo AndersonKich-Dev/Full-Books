@@ -1,21 +1,26 @@
-import React, { useState } from 'react'
-import { Container } from './styles'
+import React from 'react'
+import { Container, BorderIcon } from './styles'
 import { FaSearch } from 'react-icons/fa'
 import { useGlobalContext } from '../../Context/GlobalContext'
 
 
 export default function Search(){
-    const [search, setSearch] = useState('')
-    const { handleListBooks } = useGlobalContext()
-
+    const { handleListBooks, search, setSearch } = useGlobalContext()
+    
     return(
-        <Container>           
-            <FaSearch onClick={() => handleListBooks(search)}/>          
+        <Container>   
             <input 
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder='Search'
-            />
+            />  
+            <BorderIcon>
+                <div>
+                    <FaSearch onClick={() => handleListBooks(search, true)}/>   
+                </div>
+            </BorderIcon>      
+                   
+            
         </Container>
     )
 }
