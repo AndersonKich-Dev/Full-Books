@@ -26,6 +26,7 @@ export const Welcome = styled.div`
     justify-content: space-evenly;
     flex-direction: column;
     color: ${props => props.theme.colors.white};
+    transform: translate(-15%, 0);
 
     p {
         text-align: center;
@@ -47,6 +48,10 @@ export const Welcome = styled.div`
         :hover {
             transform: scale(0.9);
         }
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 700px){
+        transform: translate(0, 0);
     }
 `;
 

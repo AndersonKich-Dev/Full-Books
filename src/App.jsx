@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components'
 import Routes from './config/routes'
 import Search from './components/Search-component'
 import Hamburguer from './components/Hamburger-component'
+import Favorite from './components/Favorite-component'
 import { useGlobalContext } from './Context/GlobalContext'
 
 export default function App(){
@@ -22,12 +23,15 @@ export default function App(){
         </S.Header>
 
         <S.Menu displayMenu={toogleMenuMobile}>
-            <ul>
-              <li><Search/></li>
-              <li><Search/></li>
-              <li><Search/></li>
-              <li><Search/></li>
-            </ul>
+            <S.UlMenu>
+              <S.LiMenu>
+                <Search/>
+              </S.LiMenu>
+              
+              <S.LiMenu>
+                <Favorite/>
+              </S.LiMenu>             
+            </S.UlMenu>
         </S.Menu>
 
         <S.Main>

@@ -10,6 +10,7 @@ export default{
         orange_100: '#ff4700',
 
         gray_50: '#f7f8fa',
+        gray_100: '#e6e8eb',
         gray_600: '#494d4b',
 
         blue_200: '#03a9f4',

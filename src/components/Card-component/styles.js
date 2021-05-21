@@ -19,6 +19,17 @@ export const Container = styled.div`
         filter: brightness(70%);
     }
 
+    a {
+        width: 100%;
+        height: 70%;
+
+        img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    }
+
     @media only screen and (min-width: 320px) and (max-width: 700px){
         width: 8.25rem;
         height: 14.25rem;
@@ -26,18 +37,10 @@ export const Container = styled.div`
     }
 `;
 
-export const ImageBox = styled.div`
-    width: 100%;
-    height: 70%;
 
-    img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-`;
 
 export const TitleBox = styled.div`
+    position: relative;
     width: 100%;
     p{
         white-space: nowrap;
@@ -48,6 +51,13 @@ export const TitleBox = styled.div`
 
     span {
         font-family: Lexend_600;
+    }
+
+    svg {
+        position:absolute;
+        top: 100%unset;
+        right: 0;
+        color: ${props => props.theme.colors.orange_100};
     }
 `;
 

@@ -48,17 +48,8 @@ export const Menu = styled.nav`
     display: flex;
    
 
-    ul {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        li {
-            height: 3rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
+   
+
 
     @media only screen and (min-width: 320px) and (max-width: 700px){
         position: absolute;
@@ -66,10 +57,10 @@ export const Menu = styled.nav`
         right: 0;
         z-index: 1;
         width: 10rem;
-        height: 150px;
+        height: 18.75rem;
         overflow: hidden;
         background-color: ${props => props.theme.colors.purple_500};
-        border: 1px solid rgba(0,0,0,0.3);
+        
         padding: 0 .5rem;
         transition: opacity .7s, width .7s linear;
 
@@ -78,4 +69,18 @@ export const Menu = styled.nav`
         :
         tooglehiddenMenu(30, 1)}
     }
+`;
+
+export const UlMenu = styled.li`
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+`;
+
+export const LiMenu = styled.li`
+    min-height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 `;

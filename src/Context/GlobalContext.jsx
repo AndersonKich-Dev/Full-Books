@@ -4,7 +4,8 @@ import api from '../services/api'
 export const GlobalContext = createContext({})
 
 export default function GlobalContexProvider({children}){
-
+    
+    const [idView, setIdView] = useState(null)
     const [listForBooks, setListForBooks] = useState('')
     const [search, setSearch] = useState('')
     const [next, setNext] = useState(0)
@@ -13,6 +14,8 @@ export default function GlobalContexProvider({children}){
     const [pageRelease, setPageRelease] = useState(0)
     const [pagesArray, setPagesArray] = useState([])
     const [maxResult, setMaxResult] = useState(10)
+    
+    const [favoriteList, setFavoriteList] = useState([])
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const [toogleMenuMobile, setToogleMenuMobile] =useState(false)
@@ -82,6 +85,7 @@ export default function GlobalContexProvider({children}){
         if(search){
             handleListBooks(search, false)
         }   
+        updateFavoriteList()
     },[pageRelease])
          
     const handleListBooks=( string, newSearch )=>{
@@ -95,7 +99,6 @@ export default function GlobalContexProvider({children}){
             }
         })
         .then(response => {
-            console.log(response.data)
             setListForBooks(response.data.items)
             newPaginate(Math.ceil(response.data.totalItems / 10),newSearch)
         })
@@ -104,6 +107,35 @@ export default function GlobalContexProvider({children}){
         })
     }
 
+    const saveFavoriteBook = ( index, value ) =>{
+        localStorage.setItem(index, value);
+        handleListBooks(search, false)
+        updateFavoriteList()
+        
+    }
+
+    const getFavoriteBook = ( index ) =>{
+      const aux =  localStorage.getItem(index);
+      return aux;
+    }
+
+    const removeFavoriteBook = ( index ) =>{
+        localStorage.removeItem(index);
+        handleListBooks(search, false)
+        updateFavoriteList()
+    }
+
+    const updateFavoriteList =()=>{      
+        let array = []
+        for (let [key, value] of Object.entries(localStorage)) {
+            const obj = {
+                id: key,
+                title: value
+            }
+            array.push(obj)
+        }
+        setFavoriteList(array)       
+    }
 
     return(
         <GlobalContext.Provider value={{
@@ -115,6 +147,13 @@ export default function GlobalContexProvider({children}){
             pagesArray,
             toogleMenuMobile,
             screenWidth,
+            favoriteList,
+            idView,
+            setIdView,
+            setFavoriteList,
+            removeFavoriteBook,
+            getFavoriteBook,
+            saveFavoriteBook,
             setScreenWidth,
             setToogleMenuMobile,
             setSearch,
