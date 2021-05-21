@@ -19,9 +19,9 @@ export const Container = styled.div`
         filter: brightness(70%);
     }
 
-    @media only screen and (min-width: 0) and (max-width: 700px){
+    @media only screen and (min-width: 320px) and (max-width: 700px){
         width: 8.25rem;
-        height: 10.25rem;
+        height: 14.25rem;
         margin: 1rem;
     }
 `;

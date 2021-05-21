@@ -13,7 +13,7 @@ export const Container = styled.div`
         padding: 0
     }
 
-    @media only screen and (min-width: 0) and (max-width: 700px){
+    @media only screen and (min-width: 320px) and (max-width: 700px){
         padding: 0
     }
 ;`
@@ -60,8 +60,9 @@ export const ContainerCards = styled.div`
 
 
 
-    @media only screen and (min-width: 0) and (max-width: 700px){
+    @media only screen and (min-width: 320px) and (max-width: 700px){
         overflow-y: scroll;
+        height: calc(100% - 8rem);
     }
 `;
 

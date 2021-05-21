@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
 import Card from '../../components/Card-component'
 import Paginate from '../../components/Paginate-component'
 import { useGlobalContext } from '../../Context/GlobalContext'
 
 export default function Test01(){
-    const { listForBooks, currentPage, handleListBooks, setSearch} = useGlobalContext();
+    const { listForBooks, currentPage, handleListBooks, setSearch, setScreenWidth} = useGlobalContext();
 
     const firstSearch=()=>{
         setSearch('react')
         handleListBooks('react', true)
     }
+
+    useEffect(()=>{
+        setScreenWidth(window.innerWidth);
+      },[window.innerWidth])
+    
 
     return(
         <S.Container>

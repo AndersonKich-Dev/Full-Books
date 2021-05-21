@@ -12,18 +12,23 @@ export default function GlobalContexProvider({children}){
     const [currentPage, setCurrentPage] = useState(0)
     const [pageRelease, setPageRelease] = useState(0)
     const [pagesArray, setPagesArray] = useState([])
+    const [maxResult, setMaxResult] = useState(10)
 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+    const [toogleMenuMobile, setToogleMenuMobile] =useState(false)
 
     const newPaginate = (totalPages, newSearch)=>{
         let array = []
         let valueAux = 0
+        let totalPagination = 0;
+        screenWidth <= 700 ? totalPagination = 3 : totalPagination = 8;
 
         if(newSearch){
             setTotalPages(totalPages)
             setCurrentPage(1)
             setNext(0)
             
-            totalPages >= 10 ? valueAux = 10 : valueAux = totalPages
+            totalPages >= totalPagination ? valueAux = totalPagination : valueAux = totalPages
 
             for(let i = 1; i <= valueAux ; i++){
                 i === 1  
@@ -45,7 +50,7 @@ export default function GlobalContexProvider({children}){
              });
             setPagesArray(array)
             setCurrentPage(current => current + 1)
-            setNext(next => next + 10)
+            setNext(next => next + maxResult)
         }
         else{
             setCurrentPage(current => current)
@@ -61,7 +66,7 @@ export default function GlobalContexProvider({children}){
             setNext(0) 
         }else{
             setCurrentPage(current => current - 1)
-            setNext(next => next - 10)
+            setNext(next => next - maxResult)
             array.forEach(item => {
                 item.index === currentPage - 1 
                     ?item.value = true
@@ -85,7 +90,7 @@ export default function GlobalContexProvider({children}){
                 q: `${string}`,
                 printType: 'books',
                 startIndex: next,
-                maxResults: 10,
+                maxResults: maxResult,
                 orderBy: 'newest',                
             }
         })
@@ -108,6 +113,10 @@ export default function GlobalContexProvider({children}){
             totalPages,
             currentPage,
             pagesArray,
+            toogleMenuMobile,
+            screenWidth,
+            setScreenWidth,
+            setToogleMenuMobile,
             setSearch,
             handleListBooks,
             handleNextPage,
